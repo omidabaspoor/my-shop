@@ -29,7 +29,7 @@ a { text-decoration: none; color: inherit; }
 /* --- پس‌زمینه --- */
 .header-background {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('images/backgrand.jpeg');
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('images/backgrand.webp');
     background-size: cover; background-position: center; z-index: -1;
     transition: opacity 0.3s ease-out;
 }
@@ -303,3 +303,4 @@ body.drawer-open #page-content {
     .profile-dropdown { left: 0; transform: translateX(0); }
     .profile-menu-container.dropdown-open .profile-dropdown { transform: translate(0, 0); }
 }
+
