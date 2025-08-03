@@ -359,28 +359,43 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 }
 /* ریسپانسیو بهتر برای موبایل */
 @media (max-width: 768px) {
-    /* لوگو کوچکتر بشه */
-    .main-header .logo {
-        font-size: 3rem; /* حدودا نصف حالت دسکتاپ */
-    }
-
-    /* فاصله بین لوگو و آیکون‌ها بیشتر بشه */
+    /* هدر موبایل */
     .header-container {
-        padding: 0 10px;
+        padding: 0 15px;
+        height: 100vh;
         justify-content: center;
+        position: relative;
     }
 
-    .main-header .header-icons {
+    /* لوگو کوچکتر و وسط */
+    .main-header .logo {
+        font-size: 2.8rem;
+        z-index: 1; /* بالای بکگراند ولی زیر آیکون‌ها */
+    }
+
+    /* آیکون‌ها گوشه چپ */
+    .header-icons {
+        position: absolute;
         top: 20px;
         left: 15px;
         gap: 12px;
+        z-index: 2; /* بالاتر از لوگو */
     }
 
+    /* دکمه تغییر تم گوشه راست */
     .theme-toggle {
+        position: absolute;
         top: 20px;
         right: 15px;
+        z-index: 2;
+    }
+
+    /* حالت هدر بعد از اسکرول */
+    .main-header.active .logo {
+        font-size: 1.8rem;
     }
 }
+
 
 /* حالت وقتی هدر اسکرول شده */
 @media (max-width: 768px) {
