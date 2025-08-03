@@ -357,3 +357,35 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 .contact-section {
     margin-top: 80px;
 }
+/* ریسپانسیو بهتر برای موبایل */
+@media (max-width: 768px) {
+    /* لوگو کوچکتر بشه */
+    .main-header .logo {
+        font-size: 3rem; /* حدودا نصف حالت دسکتاپ */
+    }
+
+    /* فاصله بین لوگو و آیکون‌ها بیشتر بشه */
+    .header-container {
+        padding: 0 10px;
+        justify-content: center;
+    }
+
+    .main-header .header-icons {
+        top: 20px;
+        left: 15px;
+        gap: 12px;
+    }
+
+    .theme-toggle {
+        top: 20px;
+        right: 15px;
+    }
+}
+
+/* حالت وقتی هدر اسکرول شده */
+@media (max-width: 768px) {
+    .main-header.active .logo {
+        font-size: 2rem;
+    }
+}
+
