@@ -76,16 +76,17 @@ html[data-theme="dark"] .header-background { filter: brightness(0.8); }
     transition: all 0.3s ease;
 }
 
+/* نمایش آیکون‌ها */
 html[data-theme="light"] .theme-toggle .icon-sun { display: inline; stroke: white; fill: none; stroke-width: 2px; }
 html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
 html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-html[data-theme="dark"] .theme-toggle .icon-moon { display: inline; fill: white; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: inline; width: 24px; height: 24px; }
 
 .main-header.active .theme-toggle { background: transparent; }
 .main-header.active .theme-toggle:hover { background: rgba(0,0,0,0.1); }
 .main-header.active .theme-toggle .icon-sun { stroke: var(--text-color); }
-.main-header.active .theme-toggle .icon-moon { fill: var(--text-color); }
+.main-header.active .theme-toggle .icon-moon { filter: brightness(1.2); }
 
 /* --- آیکون‌های هدر و جستجو --- */
 .header-icons {
@@ -108,7 +109,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: inline; fill: white;
 .main-header.search-active .search-input { width: 200px; opacity: 1; padding: 8px 10px; }
 .main-header.active .search-input { border-bottom-color: var(--text-color); color: var(--text-color); }
 
-/* --- منوی پروفایل --- */
+/* --- پروفایل --- */
 .profile-menu-container { position: relative; display: flex; align-items: center; }
 .profile-dropdown {
     position: absolute; top: 140%; left: 50%;
@@ -147,7 +148,7 @@ html[data-theme="dark"] .hero-button { border-color: #555; }
 .hero-button:hover { background-color: white; color: #3D3D3D; }
 html[data-theme="dark"] .hero-button:hover { background-color: #333; color: white; }
 
-/* --- حالت فعال هدر پس از اسکرول --- */
+/* --- حالت هدر بعد از اسکرول --- */
 .main-header.active { background-color: var(--bg-color); box-shadow: 0 2px 10px var(--header-shadow); }
 .main-header.active .header-container { height: 90px; }
 .main-header.active .logo { font-size: 4rem; color: var(--text-color); text-shadow: none; }
@@ -162,7 +163,7 @@ html[data-theme="dark"] .hero-button:hover { background-color: #333; color: whit
 .page-content { margin-top: 100vh; position: relative; background-color: var(--bg-color); z-index: 5; }
 main { padding: 60px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
 .section-title { font-size: 2.5rem; font-weight: 300; margin-bottom: 50px; }
-.category-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.category-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 80px; }
 .category-card { display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease; }
 .category-card:hover { transform: translateY(-5px); }
 .image-container {
@@ -173,48 +174,14 @@ main { padding: 60px 20px; text-align: center; max-width: 1200px; margin: 0 auto
 .image-container img { width: 100%; height: 100%; object-fit: cover; }
 .category-card h3 { font-size: 1.8rem; font-weight: 400; }
 
-/* --- درباره ما مینیمال --- */
-/* --- درباره ما زیباتر و جدا از سایر بخش‌ها --- */
-.about-section {
-    position: relative;
-    margin: 120px auto 100px;  /* فاصله واضح از بالا و پایین */
-    padding: 60px 30px;
-    max-width: 800px;
-    text-align: center;
-
-    background-color: var(--card-bg-color);
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    border: 1px solid var(--border-color);
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 2; /* بالاتر از بکگراند */
+/* --- Divider بین بخش‌ها --- */
+.section-divider {
+    width: 80%;
+    max-width: 1000px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+    margin: 100px auto;
 }
-
-html[data-theme="dark"] .about-section {
-    background-color: var(--card-bg-color);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-
-.about-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-
-.about-section .about-text {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    font-weight: 300;
-    color: var(--text-color);
-    margin: 0 auto;
-    max-width: 600px;
-}
-
-.about-section strong {
-    font-weight: 700;
-    color: var(--text-color);
-}
-
 
 /* --- ارتباط با ما --- */
 .info-section {
@@ -324,83 +291,15 @@ body.drawer-open #page-content {
     transition: filter 0.4s ease;
 }
 
-/* --- واکنش‌گرایی --- */
+/* --- واکنش‌گرایی موبایل --- */
 @media (max-width: 768px) {
-    .main-header.active .logo { font-size: 2.5rem; }
-    .header-container { padding: 0 20px; }
-    .theme-toggle { right: 20px; }
-    .main-header .header-icons { left: 20px; gap: 15px; }
+    .header-container { padding: 0 15px; justify-content: center; position: relative; }
+    .main-header .logo { font-size: 2.8rem; z-index: 1; }
+    .header-icons { position: absolute; top: 20px; left: 15px; gap: 12px; z-index: 2; }
+    .theme-toggle { position: absolute; top: 20px; right: 15px; z-index: 2; }
+    .main-header.active .logo { font-size: 1.8rem; }
     .main-header.search-active .search-input { width: 120px; }
     .nav-drawer { width: 280px; }
     .profile-dropdown { left: 0; transform: translateX(0); }
     .profile-menu-container.dropdown-open .profile-dropdown { transform: translate(0, 0); }
 }
-html[data-theme="dark"] .theme-toggle .icon-moon { 
-    display: inline;
-    width: 24px;
-    height: 24px;
-}
-/* جداکننده بین بخش‌ها */
-.section-divider {
-    width: 80%;
-    max-width: 1000px;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--border-color), transparent);
-    margin: 100px auto; /* فاصله از بالا و پایین */
-}
-
-/* اصلاح فاصله برای سکشن‌ها */
-.category-grid {
-    margin-bottom: 80px;
-}
-
-.contact-section {
-    margin-top: 80px;
-}
-/* ریسپانسیو بهتر برای موبایل */
-@media (max-width: 768px) {
-    /* هدر موبایل */
-    .header-container {
-        padding: 0 15px;
-        height: 100vh;
-        justify-content: center;
-        position: relative;
-    }
-
-    /* لوگو کوچکتر و وسط */
-    .main-header .logo {
-        font-size: 2.8rem;
-        z-index: 1; /* بالای بکگراند ولی زیر آیکون‌ها */
-    }
-
-    /* آیکون‌ها گوشه چپ */
-    .header-icons {
-        position: absolute;
-        top: 20px;
-        left: 15px;
-        gap: 12px;
-        z-index: 2; /* بالاتر از لوگو */
-    }
-
-    /* دکمه تغییر تم گوشه راست */
-    .theme-toggle {
-        position: absolute;
-        top: 20px;
-        right: 15px;
-        z-index: 2;
-    }
-
-    /* حالت هدر بعد از اسکرول */
-    .main-header.active .logo {
-        font-size: 1.8rem;
-    }
-}
-
-
-/* حالت وقتی هدر اسکرول شده */
-@media (max-width: 768px) {
-    .main-header.active .logo {
-        font-size: 2rem;
-    }
-}
-
